@@ -1,3 +1,8 @@
+# Python folders
 env/
 __pycache__/
 .idea/
+
+# Data folders
+data/
+images/
