@@ -1,4 +1,3 @@
 import logging
-logger_pyridge = logging.Logger('SVM')
-logger_pyridge.setLevel(logging.ERROR)
-logging.basicConfig(level=logging.ERROR)
+logger_svm = logging.Logger('SVM')
+logger_svm.setLevel(logging.ERROR)
