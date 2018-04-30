@@ -1,6 +1,6 @@
 import logging
-from svm_solver import *
-from generate_data import *
+from .solver import *
+from util.generate_data import *
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -43,18 +43,3 @@ class LinearSVM(object):
         # Store values
         self.w = w
         self.b = b
-
-
-if __name__ == '__main__':
-    try:
-        import os
-        os.remove('images/svm.png')
-        logging.debug('Previous image was removed')
-    except:
-        logging.debug('Previous image did not exit')
-
-    clf = LinearSVM()
-    X, y = generate_data(dataname='data/gaussiandata.pickle')
-    # X,y = read_data('data/gaussiandata.pickle')
-    clf.fit(X=X, y=y, soft=True)
-    plot_data_separator(X,y, clf.w, clf.b, 'images/svm.png')
