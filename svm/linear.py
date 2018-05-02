@@ -43,3 +43,12 @@ class LinearSVM(object):
         # Store values
         self.w = w
         self.b = b
+
+    def predict(self, X):
+        """
+
+        :param X:
+        :return:
+        """
+        y = np.sign(np.dot(self.w, X.T) + self.b * np.ones(X.shape[0]))
+        return y
