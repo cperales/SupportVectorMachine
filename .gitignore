@@ -11,3 +11,4 @@ images/
 # Mutable objects
 *.png
 *.pickle
+*.pyc

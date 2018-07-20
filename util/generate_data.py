@@ -61,7 +61,7 @@ def generate_data(m_1=1.0,
                   c_2=0.2,
                   num=50,
                   dim=2,
-                  dataname='gaussiandata.pickle'):
+                  dataname=None):
     """
     Generate random binary data and save it into a pickle.
     """
