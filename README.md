@@ -4,7 +4,7 @@ This repository is a simple Python implementation of SVM, using `cvxopt`
 as base solver.
 
 - [x] Linear SVM for 2 classes
-- [ ] Kernel SVM for 2 classes
+- [x] Kernel SVM for 2 classes
 - [ ] Multi classification
 
 
@@ -13,7 +13,7 @@ as base solver.
 `svm.py` works as an entry point. Just run
 
 ```bash
-python svm.py
+python example.py
 ```
 
 
