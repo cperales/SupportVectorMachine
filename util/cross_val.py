@@ -1,4 +1,4 @@
-mport numpy as np
+import numpy as np
 import itertools
 # from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
