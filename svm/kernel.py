@@ -30,7 +30,8 @@ class KernelSVM(LinearSVM):
         """
         self.kernel = partial(kernel_dict[kernel_type.lower()], k=k)
         # Get alphas
-        alphas = fit_soft(X, y)
+        C = 1.0  # Penalty
+        alphas = fit_soft(X, y, C)
         # normalize
         alphas = alphas / np.linalg.norm(alphas)
         # Get b

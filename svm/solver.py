@@ -31,17 +31,17 @@ def fit(x, y):
     return alphas
 
 
-def fit_soft(x, y):
+def fit_soft(x, y, C):
     """
     Fit alphas for dual problem soft margin SVM.
 
     :param numpy.array x: instances.
     :param numpy.array y: labels.
+    :param float C: penalty.
     :return: alphas
     """
     num = x.shape[0]
     dim = x.shape[1]
-    C = 1.0 / dim  # Penalty
     # we'll solve the dual
     # obtain the kernel
     K = y[:, None] * x

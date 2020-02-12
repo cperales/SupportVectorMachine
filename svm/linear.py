@@ -24,7 +24,8 @@ class LinearSVM(object):
         """
         # Data can be added as a pickle using read_data method
         if soft is True:
-            alphas = fit_soft(X, y)
+            C = 1.0  # Penalty
+            alphas = fit_soft(X, y, C)
         else:
             alphas = fit(X, y)
 
