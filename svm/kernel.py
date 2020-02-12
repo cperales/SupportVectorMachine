@@ -1,5 +1,5 @@
 import logging
-from .solver import *
+from .solver import fit_kernel
 from .linear import LinearSVM
 from util.generate_data import *
 from util import kernel_dict
@@ -31,7 +31,7 @@ class KernelSVM(LinearSVM):
         self.kernel = partial(kernel_dict[kernel_type.lower()], k=k)
         # Get alphas
         C = 1.0  # Penalty
-        alphas = fit_soft(X, y, C)
+        alphas = fit_kernel(X, y, C, self.kernel)
         # normalize
         alphas = alphas / np.linalg.norm(alphas)
         # Get b

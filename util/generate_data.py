@@ -56,7 +56,7 @@ def plot_separator(ax, w, b, color='k'):
 
 
 def generate_data(m_1=1.0,
-                  m_2=2.1,
+                  m_2=1.5,
                   c_1=0.3,
                   c_2=0.2,
                   num=50,
@@ -85,6 +85,25 @@ def generate_data(m_1=1.0,
             pickle.dump((x, y), f)
 
     return x, y
+
+
+def train_test_split(X, y, prop=0.25):
+    """
+
+    :param X:
+    :param y:
+    :param prop:
+    :return:
+    """
+    index = np.random.choice(a=[False, True],
+                             size=(X.shape[0],),
+                             p=[prop, 1 - prop])
+    X_train = X[index]
+    y_train = y[index]
+    X_test = X[np.invert(index)]
+    y_test = y[np.invert(index)]
+
+    return X_train, y_train, X_test, y_test
 
 
 def plot_data_separator(X, y, w, b, figname='svm.png'):

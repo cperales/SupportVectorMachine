@@ -11,8 +11,8 @@ class TestLinearSVM(unittest.TestCase):
         X, y = generate_data()
         clf.fit(X=X, y=y, soft=True)
         acc = accuracy(clf=clf, X=X, y=y)
-        margin = 0.04
-        average = 0.95
+        margin = 0.1
+        average = 0.75
         condition = average - margin <= acc <= average + margin
         self.assertEqual(condition, True)
 
@@ -21,8 +21,8 @@ class TestLinearSVM(unittest.TestCase):
         X, y = generate_data()
         clf.fit(X=X, y=y, kernel_type='rbf', k=1.0)
         acc = accuracy(clf=clf, X=X, y=y)
-        margin = 0.04
-        average = 0.95
+        margin = 0.1
+        average = 0.75
         condition = average - margin <= acc <= average + margin
         self.assertEqual(condition, True)
 

@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def accuracy(clf, X, y, y_pred=None):
+def accuracy(clf, X, y):
     """
 
     :param clf:
@@ -10,7 +10,7 @@ def accuracy(clf, X, y, y_pred=None):
     :param y_pred:
     :return: accuracy
     """
-    if y_pred is None:
-        y_pred = clf.predict(X=X)
+    y_pred = clf.predict(X=X)
     comp = np.array((y_pred == y), dtype=np.float)
+    acc = np.mean(comp)
     return np.mean(comp)
