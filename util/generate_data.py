@@ -48,10 +48,12 @@ def plot_ax_data_with_labels(x, y, ax):
         ax.scatter(x_sub[:, 0], x_sub[:, 1], c=COLORS[li])
 
 
-def plot_separator(ax, w, b, color='k'):
+def plot_separator(ax, w, b, axis_X, axis_Y, color='k'):
     slope = -w[0] / w[1]
     intercept = -b / w[1]
-    x = np.arange(0, 6)
+    min_axis_X, max_axis_X = axis_X.min(), axis_X.max()
+    min_axis_Y, max_axis_Y = axis_Y.min(), axis_Y.max()
+    x = np.arange(min_axis_X, max_axis_X)
     ax.plot(x, x * slope + intercept, color + '-')
 
 
@@ -112,7 +114,10 @@ def plot_data_separator(X, y, w, b, figname='svm.png'):
     """
     fig, ax = plt.subplots()
     plot_ax_data_with_labels(X, y, ax)
-    plot_separator(ax, w, b)
+    axis_X = X[:, 0]
+    axis_Y = X[:, 1]
+    # yx_sub[:, 0], yx_sub[:, 1]
+    plot_separator(ax, w, b, axis_X, axis_Y)
     plt.savefig(figname)
     plt.show()
     return fig, ax

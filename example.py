@@ -7,21 +7,21 @@ import numpy as np
 
 X, y = generate_data(dataname='../gaussiandata.pickle')
 X_train, y_train, X_test, y_test = train_test_split(X, y, prop=0.25)
-# try:
-#     import os
-#
-#     os.remove('images/svm.png')
-#     logging.debug('Previous image was removed')
-# except:
-#     logging.debug('Previous image did not exit')
-#
+try:
+    import os
+
+    os.remove('images/svm.png')
+    logging.debug('Previous image was removed')
+except:
+    logging.debug('Previous image did not exit')
+
 clf = LinearSVM()
 clf.fit(X=X_train, y=y_train, soft=True)
 acc_train = accuracy(clf, X=X_train, y=y_train)
 acc_test = accuracy(clf, X=X_test, y=y_test)
 logging.info('Accuracy (on training) = {}'.format(acc_train))
 logging.info('Accuracy (on test) = {}'.format(acc_test))
-# plot_data_separator(X, y, clf.w, clf.b, '../svm.png')
+plot_data_separator(X, y, clf.w, clf.b, '../svm.png')
 
 
 clf = KernelSVM()
